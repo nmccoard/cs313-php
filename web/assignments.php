@@ -13,14 +13,14 @@
     </div>
     <div id="navBar">
          <ul id="navList">
-            <li><a href="homePage.php" id="current">Home</a></li>
-            <li><a href="assignments.php">Assignment</a></li>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="assignments.php" id = "current">Assignment</a></li>
             <li><a href="#">Coming Soon</a></li>
         </ul>
     </div>
     <h2>Nate M<sup>c</sup>Coard</h3>
     <h3>CSE 341 Assignments</h4>
-    <div>
+    <div id="cap">
         <?php
             $today=getdate(date("U"));
             echo "$today[month] $mydate[mday], $mydate[year]";
