@@ -11,9 +11,13 @@
     <div id="aboveNav">
         <h1 class="title">Assignments</h1>
     </div>
-        <?php
-            include('include/nav.php');
-        ?>
+    <div id="navBar">
+         <ul id="navList">
+            <li><a href="homePage.php" id="current">Home</a></li>
+            <li><a href="assignments.php">Assignment</a></li>
+            <li><a href="#">Coming Soon</a></li>
+        </ul>
+    </div>
     <h2>Nate M<sup>c</sup>Coard</h3>
     <h3>CSE 341 Assignments</h4>
     <div>
