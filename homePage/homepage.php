@@ -19,9 +19,13 @@
             <div id="aboveNav">
                 <img src="assets/mccoard.png" alt="McCoard Logo" id="logo">
             </div>
-           <?php
-            include('include/nav.php');
-            ?>
+            <div id="navBar">
+                <ul id="navList">
+                    <li><a href="homepage.php" id="current">Home</a></li>
+                    <li><a href="assignments.php">Assignment</a></li>
+                    <li><a href="#">Coming Soon</a></li>
+                </ul>
+        </div>
         </div>
         <div id="main" class="item3">
             <h1>A little about me!</h1>
@@ -37,7 +41,7 @@
 
         <footer class="item7">
             <div>© Nate M<sup>c</sup>Coard, <?php $mydate=getdate(date("U"));
-                echo "$mydate[month] $mydate[mday], $mydate[year]";
+                echo "$mydate[month], $mydate[year]";
                 ?></div>
             <div>CSE341 Assignment #2</div>
             <div>Kirtland, OH</div>

@@ -11,17 +11,21 @@
     <div id="aboveNav">
         <h1 class="title">Assignments</h1>
     </div>
-        <?php
-            include('include/nav.php');
-        ?>
-    <h2>Nate M<sup>c</sup>Coard</h3>
-    <h3>CSE 341 Assignments</h4>
-    <div>
+    <div id="navBar">
+         <ul id="navList">
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="assignments.php" id = "current">Assignment</a></li>
+            <li><a href="#">Coming Soon</a></li>
+        </ul>
+    </div>
+    <h2>Nate M<sup>c</sup>Coard</h2>
+    <h3>CSE 341 Assignments</h3>
+    <h3>
         <?php
             $today=getdate(date("U"));
-            echo "$today[month] $mydate[mday], $mydate[year]";
+            echo "$today[month] $today[mday], $today[year]";
         ?>
-    </div>
+    </h3>
     <hr>
     <ul id="centeredList">
         <li class="inside"><a href="#">Coming Soon</a></li>
