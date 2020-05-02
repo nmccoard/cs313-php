@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="homePage.js"></script>
+    <script type="text/javascript" src="homepage.js"></script>
 </head>
 
 <body>
@@ -19,16 +19,9 @@
             <div id="aboveNav">
                 <img src="assets/mccoard.png" alt="McCoard Logo" id="logo">
             </div>
-            <!--   <?php
+           <?php
             include('include/nav.php');
-            ?> -->
-            <div id="navBar">
-                <ul id="navList">
-                    <li><a href="homePage.php" id="current">Home</a></li>
-                    <li><a href="assignments.php">Assignment</a></li>
-                    <li><a href="#">Coming Soon</a></li>
-                </ul>
-            </div>
+            ?>
         </div>
         <div id="main" class="item3">
             <h1>A little about me!</h1>
