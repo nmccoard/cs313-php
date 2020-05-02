@@ -1,0 +1,198 @@
+/*******************************
+ * By: Nate McCoard
+ * For: CSE 341 - Assignment 02 
+ *******************************/
+
+@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
+
+.item1 { grid-area: aboveNav; }
+.item3 { grid-area: main; }
+.item4 { grid-area: side; }
+.item5 { grid-area: pic1; }
+.item6 { grid-area: pic2; }
+.item7 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'aboveNav aboveNav aboveNav'
+    'main side side'
+    'main pic1 pic2'
+    'footer footer footer';
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: rgb(206, 206, 206);
+}
+
+
+#aboveNav {
+  background-color: rgb(79, 129, 160);
+  background-image: url(assets/travelPattern2.png);
+  padding-top: 35px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#logo {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#navBar {
+  display: flex;
+  background-color: rgb(70, 70, 70);
+  list-style-type: none;
+}
+
+#navList {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 65%;
+  padding: 0;
+  top: 0;
+  font-size: 21px;
+  font-family: 'Gloria Hallelujah', cursive;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+#navList li {
+  float: left;
+}
+
+#navList li a {
+  display: block;
+  color: rgb(255, 161, 83);
+  text-align: center;
+  padding: 8px 26px;
+  text-decoration: none;
+  
+}
+
+#navList li a:hover {
+  font-weight: 900;
+}
+
+.title {
+  font-family: 'Special Elite', cursive;
+  font-size: 4rem;
+  color: rgb(209, 229, 150);
+  text-shadow: 2px 2px 0px rgb(0, 0, 0);
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1.5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 2rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+} 
+
+h3 {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1.25rem;
+  margin-top: .5rem;
+  margin-bottom: .25rem;
+} 
+
+p{
+  text-align: justify;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  margin-top: .25rem;
+}
+
+#cap {
+  margin: 0;
+  text-align: center;
+}
+
+#main {
+  margin-left: 1.2rem;
+  margin-right: 1rem;
+}
+
+#centeredList {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1rem;
+}
+
+.inside{
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+img {
+  max-width: 99%;
+  height: auto;
+}
+
+/* Footer stuff */
+footer {
+  background-color: rgb(70, 70, 70);
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* has to be at the bottom */
+@media (max-width: 1360px) {
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'aboveNav aboveNav'
+      'main side'
+      'main pic1'
+      'main pic2'
+      'footer footer';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  #navBar{
+    flex-direction: column;
+ }
+}
+
+/* two columb layout */
+@media (max-width: 700px) {
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'aboveNav'
+      'main'
+      'main'
+      'main'
+      'side'
+      'pic1'
+      'pic2'
+      'footer';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  footer {
+    font-size: 50%;
+  }
+}
