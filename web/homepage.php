@@ -8,8 +8,6 @@
     <title>Nate's CSE341 Page</title>
     <link rel="stylesheet" href="homePage.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script type="text/javascript" src="homepage.js"></script>
 </head>
 
@@ -35,12 +33,17 @@
             <h3>Hopes and Dreams</h3>
             <p id="cap">I would love to build one of each of these</p>
         </div>
-        <div id="pic1" class="item5"><img src="assets\fireChicken.jpg" alt="Supercharged 1971 Pontiac Firebird"></div>
-        <div id="pic2" class="item6"><img src="assets\24-icon-49-mercury-coupe-ev.jpg"
-                alt="1949 Mercury converted to Electric"></div> <!--picture courtesy of https://electrek.co/2018/10/31/1949-mercury-coupe-ev-conversion-tesla-powertrain/-->
+        <div id="pic1" class="item5">
+            <img src="assets\fireChicken.jpg" alt="Supercharged 1971 Pontiac Firebird">
+            <p>Supercharged 1971 Pontiac Firebird</p>
+        </div>
+        <div id="pic2" class="item6">
+            <img src="assets\24-icon-49-mercury-coupe-ev.jpg"alt="1949 Mercury converted to Electric"><!--picture courtesy of https://electrek.co/2018/10/31/1949-mercury-coupe-ev-conversion-tesla-powertrain/-->
+            <p>All electric 1949 Mercury conversion</p>
+        </div> 
 
         <footer class="item7">
-            <div>© Nate M<sup>c</sup>Coard, <?php $mydate=getdate(date("U"));
+            <div>© Nate M<sup>c</sup>Coard <?php $mydate=getdate(date("U"));
                 echo "$mydate[month], $mydate[year]";
                 ?></div>
             <div>CSE341 Assignment #2</div>
