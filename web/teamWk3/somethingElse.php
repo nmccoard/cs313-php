@@ -75,14 +75,12 @@
     ?>
     <!-- Comments Text Area -->
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Comments</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="comments">Comments</label>
+      <textarea class="form-control" id="comments" rows="3" name="comments"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
-
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
