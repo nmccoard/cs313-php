@@ -46,7 +46,7 @@
     <!-- Email -->
     <div class="form-group">
       <label for="emailInput">Email address</label>
-      <input type="email" class="form-control" id="emailInput" name='email' aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="emailInput" name='email'>
     </div>
 
     <!-- Major Radio Buttons -->
