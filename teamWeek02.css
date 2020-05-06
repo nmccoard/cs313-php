@@ -1,0 +1,25 @@
+/* Nate McCoard | Team Activity Week 02  */
+
+.first {
+	background-color: rgb(32, 31, 121);
+    font-size: 32px;
+    color: rgb(240, 255, 255);
+}
+
+.second {
+	font-size: 24px;
+}
+
+#div2 {
+    background-color: rgb(77, 208, 225);
+    color: rgb(75, 75, 75)
+}
+
+#div3 {
+    background-color: rgb(177, 50, 50);
+    color: rgb(240, 255, 255);
+}
+
+.hoverBold:hover {
+	font-weight: bold;
+}

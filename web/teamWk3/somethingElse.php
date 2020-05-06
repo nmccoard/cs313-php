@@ -1,10 +1,19 @@
 <?php
-
-
-
-
-
-
+    $majors = [
+        'CE' => 'Computer Engineering',
+        'CT' => 'Computer Information Technology',
+        'CS' => 'Computer Science',
+        'WDD' => 'Web Design & Development'
+    ];
+    $continents = [
+        'AR' => 'Africa',
+        'AN' => 'Antarctica',
+        'AU' => 'Australia',
+        'AA' => 'Asia',
+        'EU' => 'Europe',
+        'NA' => 'North America',
+        'SA' => 'South America'
+    ]; 
 ?>
 
 <!doctype html>
@@ -26,69 +35,43 @@
   <h3>You will fill out the form</h3>
   <h4>or else</h4>
 
-  <form>
+  <form action='something.php' method='post'>
+
     <!-- Name -->
     <div class="form-group">
-      <label class="sr-only" for="inlineFormInputName">Name</label>
-      <input type="text" class="form-control" id="inlineFormInputName" placeholder="Darth Vader">
+      <label for="nameInput">Name</label>
+      <input type="text" class="form-control" id="nameInput" name='name' placeholder="Darth Vader">
     </div>
 
     <!-- Email -->
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <label for="emailInput">Email address</label>
+      <input type="email" class="form-control" id="emailInput" name='email' aria-describedby="emailHelp">
     </div>
 
     <!-- Major Radio Buttons -->
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="majorRadios" id="CSradio" value="option1">
-      <label class="form-check-label" for="CSradio">
-        Computer Science
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="majorRadios" id="WDDradio" value="option2">
-      <label class="form-check-label" for="WDDradio">
-        Web Design and Development
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="majorRadios" id="CITradio" value="option3">
-      <label class="form-check-label" for="CITradio">
-        Computer Information Technology
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="majorRadios" id="CEradio" value="option4">
-      <label class="form-check-label" for="CEradio">
-        Computer Engineering
-      </label>
-    </div>
-
-    <!-- Countries -->
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="northAmerica">North America</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="southAmerica">South America</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="europe">Europe</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="asia">Asia</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="australia">Australia</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="africa">Africa</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" name="countries" value="antarctica">Antarctica</label>
-    </div>
-    
+    <?php
+        foreach($majors as $key => $major) : ?>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="major" id="major<?php echo $key; ?>" value="<?php echo $key; ?>">
+                <label class="form-check-label" for="major<?php echo $key; ?>">
+                <?php echo $major; ?>
+                </label>
+            </div>
+    <?php endforeach;?>
+    <!-- Continents -->
+    <?php
+        foreach($continents as $key => $continent): ?>    
+            <div class="checkbox">
+                <input class="form-check-input" type="checkbox" name="continents[]" id="continent<?php echo $key;?>" value="<?php echo $key;?>">
+                <label class="form-check-label" for="continent<?php echo $key;?>"> 
+                <?php echo $continent;?>
+                </label>
+            </div>
+        
+    <?php
+    endforeach;
+    ?>
     <!-- Comments Text Area -->
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Comments</label>
