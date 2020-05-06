@@ -59,10 +59,11 @@
                 </label>
             </div>
     <?php endforeach;?>
+    
     <!-- Continents -->
     <?php
         foreach($continents as $key => $continent): ?>    
-            <div class="checkbox">
+            <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="continents[]" id="continent<?php echo $key;?>" value="<?php echo $key;?>">
                 <label class="form-check-label" for="continent<?php echo $key;?>"> 
                 <?php echo $continent;?>
