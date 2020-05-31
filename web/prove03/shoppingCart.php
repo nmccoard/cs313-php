@@ -102,7 +102,7 @@
     </div>
     <footer class="container-fluid text-center">
         <div>© Nate M<sup>c</sup>Coard, 2020</div>
-        <div>CSE341 Assignment #3</div>
+        <div>CSE341 Assignment #5</div>
         <div>Kirtland, OH</div>
     </footer>
     </body>

@@ -31,10 +31,10 @@ $index = 0;
             <a class="nav-link active" href="#">Search</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#">Data Entry</a>
+         <a class="nav-link" href="addStudent.php">Add New Students</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="#">Something Else</a>
+         <a class="nav-link" href="addRecord.php">Add Training Records</a>
          </li>
       </ul>
    </nav>
@@ -60,7 +60,7 @@ $index = 0;
             </div>
          </div>
          <div class="row mb-2">
-            <div class="col">
+            <div class="col-3">
                <label for="employeeNum2">Employee Number:</label>
                <input class="form-control form-control-sm mb-2" type="text" placeholder="123" id="employeeNum2"
                   name="employeeNum">
@@ -145,7 +145,6 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                   $locationForEquipment = $result['student_zone']; 
                   endforeach; 
 
-                  endif;
                ?>
             </tbody>
          </table>
@@ -173,7 +172,6 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody>
             <?php  
-               if (isset($_GET['searchBTN'])) :
       
                foreach($results2 as $result2) : 
             ?>
