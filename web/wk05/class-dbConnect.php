@@ -15,7 +15,7 @@ class Database {
     private function __construct() {
 
         $uri = getenv('DATABASE_URL');
-
+/*
         try {
             
           $db = parse_url( $uri );
@@ -39,7 +39,7 @@ class Database {
 
       }
 
-/*
+*/
         try
         {
           $dbHost = "ec2-34-192-173-173.compute-1.amazonaws.com";
@@ -56,7 +56,6 @@ class Database {
           echo 'Error!: ' . $ex->getMessage();
           die();
         }
-*/
     }
 
     /**
