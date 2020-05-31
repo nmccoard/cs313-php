@@ -16,28 +16,29 @@ class Database {
 
         $uri = getenv('DATABASE_URL');
 
+        try {
+            
+          $db = parse_url( $uri );
 
-try
-{
-  $dbUrl = getenv('DATABASE_URL');
+          $db = new PDO("pgsql:" . sprintf(
+              "host=%s;port=%s;user=%s;password=%s;dbname=%s;sslmode=require",
+              $db["host"],
+              $db["port"],
+              $db["user"],
+              $db["pass"],
+              ltrim($db["path"], "/")
+          ));
 
-  $dbOpts = parse_url($dbUrl);
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
+          $this->_connection = $db;
 
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+      } catch( PDOException $e ) {
 
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $ex)
-{
-  echo 'Error!: ' . $ex->getMessage();
-  die();
-}
+          echo $e->getMessage();
+
+      }
+
 /*
         try
         {
