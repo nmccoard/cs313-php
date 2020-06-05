@@ -15,31 +15,34 @@ class Database {
     private function __construct() {
 
         $uri = getenv('DATABASE_URL');
-/*
+
+
         try {
             
-          $db = parse_url( $uri );
+            $db = parse_url( $uri );
 
-          $db = new PDO("pgsql:" . sprintf(
-              "host=%s;port=%s;user=%s;password=%s;dbname=%s;sslmode=require",
-              $db["host"],
-              $db["port"],
-              $db["user"],
-              $db["pass"],
-              ltrim($db["path"], "/")
-          ));
+            $db = new PDO("pgsql:" . sprintf(
+                "host=%s;port=%s;user=%s;password=%s;dbname=%s;sslmode=require",
+                $db["host"],
+                $db["port"],
+                $db["user"],
+                $db["pass"],
+                ltrim($db["path"], "/")
+            ));
 
-          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          $this->_connection = $db;
+            $this->_connection = $db;
 
-      } catch( PDOException $e ) {
+        } catch( PDOException $e ) {
 
-          echo $e->getMessage();
+            echo $e->getMessage();
 
-      }
+        }
 
-*/
+    }
+
+/*
         try
         {
           $dbHost = "ec2-34-192-173-173.compute-1.amazonaws.com";
@@ -56,7 +59,7 @@ class Database {
           echo 'Error!: ' . $ex->getMessage();
           die();
         }
-    }
+    } */
 
     /**
      * Retrieve instance of the Database class
