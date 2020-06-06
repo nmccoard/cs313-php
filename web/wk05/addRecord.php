@@ -41,7 +41,7 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
   <!-- Links -->
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
      <li class="nav-item">
-        <a class="nav-link" href="index">Search</a>
+        <a class="nav-link" href="index.php">Search</a>
      </li>
      <li class="nav-item">
         <a class="nav-link" href="addStudent.php">Add New Students</a>
