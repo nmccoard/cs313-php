@@ -59,7 +59,7 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
          <div class="row mb-2">
             <div class="col-4">
                <label for="courseCode">Course Code</label>
-               <input class="form-control" type="text" placeholder="SQTS010-01" id="courseCode" name="courseCode" required>
+               <input class="form-control" type="text" placeholder="SQTS010-01" id="courseCode" name="courseCode" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,}" required>
             </div>
          </div>
          <div class="row mb-2">
@@ -152,6 +152,16 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
       <div>Kirtland, OH</div>
    </footer>
 
-</body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+   <script type="text/javascript">
+      $("#date").blur(function () {
+         if (!(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/s.test($(this).val()))) {
+            $(this).css('backgroundColor', 'red');
+         }
+      });
+   </script>
+
+   </body>
 
 </html>
