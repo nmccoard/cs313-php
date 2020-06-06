@@ -23,26 +23,34 @@ $index = 0;
 </head>
 
 <body>
-   <!-- Nav Bar Stuff -->
-   <nav class="navbar justify-content-end navbar-expand-sm bg-dark navbar-dark sticky-top">
-      <!-- Links -->
-      <ul class="navbar-nav">
-         <li class="nav-item">
-            <a class="nav-link active" href="#">Search</a>
-         </li>
-         <li class="nav-item">
-         <a class="nav-link" href="addStudent.php">Add New Students</a>
-         </li>
-         <li class="nav-item">
-         <a class="nav-link" href="addRecord.php">Add Training Records</a>
-         </li>
-      </ul>
-   </nav>
+ <!-- Nav Bar Stuff -->
+<header class="navbar navbar-expand flex-column flex-md-row bg-dark navbar-dark sticky-top">
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+         <img src="mccoard.png" alt="Logo" style="width:150px;"> 
+      </li>
+    </ul>
+  </div>
+  <!-- Links -->
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+     <li class="nav-item">
+        <a class="nav-link active" href="#">Search</a>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="addStudent.php">Add New Students</a>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="addRecord.php">Add Training Records</a>
+     </li>
+  </ul>
+  </header>
+  <!-- Jumbotron -->
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
          <h1 class="display-4">Training Record Search</h1>
          <hr>
-         <p class="lead">Add something witty here</p>
+         <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Add something witty here</p>
       </div>
    </div>
 
@@ -189,10 +197,10 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
          </table>
       </div>
    </div>
-   <hr>
-   <footer class="container-fluid text-center">
+   <footer class="container-fluid text-center bg-light">
+      <hr>
       <div>© Nate M<sup>c</sup>Coard, 2020</div>
-      <div>CSE341 Assignment #5</div>
+      <div>CSE341 Assignment #6</div>
       <div>Kirtland, OH</div>
    </footer>
 

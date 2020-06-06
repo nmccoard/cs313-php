@@ -11,6 +11,13 @@ $statement  = $db->prepare($query);
 $result     = $statement->execute($params);
 $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+$query2  = "SELECT * FROM course_record WHERE id=".$_POST['recordID'];
+$params2 = [];
+
+$statement  = $db->prepare($query2);
+$result2    = $statement->execute($params2);
+$records   = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -41,40 +48,47 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
   <!-- Links -->
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
      <li class="nav-item">
-        <a class="nav-link" href="index">Search</a>
+        <a class="nav-link" href="index.php">Search</a>
      </li>
      <li class="nav-item">
         <a class="nav-link" href="addStudent.php">Add New Students</a>
      </li>
      <li class="nav-item">
-        <a class="nav-link active" href="#">Add Training Records</a>
+        <a class="nav-link active" href="addRecord.php">Add Training Records</a>
      </li>
   </ul>
   </header>
   <!-- Jumbotron -->
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
-         <h1 class="display-4">Training Record Form</h1>
+         <h1 class="display-4">Update a Training Record</h1>
          <hr>
-         <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;It doesn't count until it been documented...</p>
+         <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;The greatest teacher, failure is... - Yoda</p>
       </div>
    </div>
 <!--  -Start of the Student Entry Form-  -->
    <div class="container mb-2">
-      <p>Use the form below to enter Individual Training Records<p>
-      <hr>
-      <form method="POST" action="insertRecord.php">
-         <div class="row mb-2">
-            <div class="col-4">
+      <form method="POST" action="updateRecord.php">
+            <div class="col-3">
                <label for="courseCode">Course Code</label>
-               <input class="form-control" type="text" placeholder="SQTS010-01" id="courseCode" name="courseCode" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,}" required>
+               <input class="form-control" type="text" value="<?php echo $records[0]['course_code'] ?>" id="courseCode" name="courseCode" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,}" required>
             </div>
-         </div>
-         <div class="row mb-2">
             <div class="col-3">
                <label for="class">Subject:</label>
                <select id="class" class="form-control"  name="subject" required>
-                  <option selected disabled value="">Choose...</option>
+                  <option selected value="<?php echo $records[0]['course_id'] ?>">
+                     <?php if($records[0]['course_id'] == 1){
+                           echo "Steam Sterilizer";
+                        } elseif ($records[0]['course_id'] == 2) {
+                           echo "VPro";
+                        } elseif ($records[0]['course_id'] == 3) {
+                           echo "Washer Disinfector";
+                        } elseif ($records[0]['course_id'] == 4) {
+                           echo "Surgical Products";
+                        } elseif ($records[0]['course_id'] == 5) {
+                           echo "OR Integration";
+                        }?>
+                  </option>
                   <option value="1">Steam Sterilizer</option>
                   <option value="2">VPro</option>
                   <option value="3">Washer Disinfector</option>
@@ -82,82 +96,36 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
                   <option value="5">OR Integration</option>
                </select>
             </div>
-         </div>
-         <div class="row mb-2"> 
             <div class="col-3">
                <label for="studentID">Student:</label>
                <select id="studentID" class="form-control"  name="studentID" required>
-                  <option selected disabled value="">Choose...</option>
+                  <option selected value="<?php echo $records[0]['student_id'] ?>">
+                     <?php echo $students[$records[0]['student_id']-1]['first_name'], " ",  $students[$records[0]['student_id']-1]['last_name'];?>
+                  </option>
                   <?php foreach( $students as $student ) : ?>
                      <option value="<?php echo $student['id'];?>"><?php echo $student['first_name'], " ",  $student['last_name'];?></option>
                   <?php endforeach ?>
                </select>
-            </div>
-         </div> 
-         <div class="row mb-2">          
+            </div>          
             <div class="col-3">
                <label for="date">Date (YYYY-MM-DD):</label>
-               <input class="form-control mb-2" type="text" placeholder="2001-01-01" id="date" name="date" required>
+               <input class="form-control mb-2" type="text" value="<?php echo $records[0]['course_end_date'] ?>" id="date" name="date" required>
+               <input type="hidden" value="<?php echo $_POST['recordID'] ?>" name="recordID" id="recordID">
             </div>
          </div>
          <div id="row mb-2">
             <div class="col-2">
-               <button type="submit" class="btn btn-success mb-2 form-control" id="searchBTN" name="searchBTN">Submit</button>
+               <button type="submit" class="btn btn-success mb-2 form-control" id="updateBTN" name="updateBTN">Submit Changes</button>
             </div>
          </div>
       </form>
-      <form>
-      <div class="col-3">
-               <button type="submit" class="btn btn-primary mb-2 form-control" id="recordBTN" name="recordBTN">Load Training Records</button>
-            </div>
+      <form method="POST" action="deleteRecord.php">
+      <div class="col-2">
+         <input type="hidden" value="<?php echo $_POST['recordID'] ?>" name="recordID" id="recordID">
+         <button type="submit" class="btn btn-danger mb-2" id="deleteBTN" name="deleteBTN">Delete Record</button>
+      </div>
       </form>
-   </div>
-   <hr>
-   <?php
-      $query2 = 'SELECT cr.id, course_id, course_code, course_end_date, first_name, last_name, employee_number FROM course_record cr JOIN student s ON cr.student_id=s.id ORDER BY cr.course_end_date DESC;';
-
-      $stmt = $db->prepare( $query2 );
-      $stmt->execute();
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      if (isset($_GET['recordBTN'])) :
-   ?>
-   <div>
-      <table class="table table-striped table-bordered table-light">
-         <thead class="thead-dark">
-             <tr>
-                 <th colspan="6"><h5>Completed Training:</h5></th>
-             </tr>
-             <tr>
-                 <th>Course Code</th>
-                 <th>Completion Date</th>
-                 <th>Student Name</th>
-                 <th>Employee Number</th>
-                 <th></th>
-             </tr>
-         </thead>
-         <tbody>
-         <?php        
-            foreach($results as $result) : ?>
-               <tr>
-                  <td><?php echo $result['course_code'] ?></td>
-                  <td><?php echo $result['course_end_date'] ?></td>
-                  <td><?php echo $result['first_name'] . ' ' . $result['last_name'] ?></td>
-                  <td><?php echo $result['employee_number'] ?></td>
-                  <td><form method="POST" action="editRecord.php" id="form<?php echo $result['id']; ?>">
-                     <input type="hidden" value="<?php echo $result['id']; ?>" name="recordID">
-                     <button type="submit" class="btn btn-warning mb-2" id="Submit<?php echo $result['id']; ?>" name="<?php echo $result['id']; ?>BTN">Update</button>
-                  </form></td>
-               </tr>   
-         <?php
-            endforeach; 
-         ?>            
-         </tbody>
-
-      </table>
-   </div>
-   <?php 
-      endif; 
-   ?>
+      
    <footer class="container-fluid text-center bg-light">
       <hr>
       <div>© Nate M<sup>c</sup>Coard, 2020</div>
@@ -171,12 +139,13 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
       $("#date").blur(function () {
          if (/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test($(this).val())) {
             $(this).css('backgroundColor', "rgba(255, 255, 255, 0.0)");
-            $("#searchBTN").show();
+            $("#updateBTN").show();
          } else {
             $(this).css('backgroundColor', "rgba(254, 0, 0, 0.25)");
-            $("#searchBTN").hide();
+            $("#updateBTN").hide();
          }
       });
+
    </script>
 
    </body>

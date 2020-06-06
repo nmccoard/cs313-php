@@ -22,26 +22,34 @@ $index = 0;
 </head>
 
 <body>
-   <!-- Nav Bar Stuff -->
-   <nav class="navbar justify-content-end navbar-expand-sm bg-dark navbar-dark sticky-top">
-      <!-- Links -->
-      <ul class="navbar-nav">
-         <li class="nav-item">
-            <a class="nav-link" href="index.php">Search</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link active" href="#">Add New Students</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="addRecord.php">Add Training Records</a>
-         </li>
-      </ul>
-   </nav>
+ <!-- Nav Bar Stuff -->
+ <header class="navbar navbar-expand flex-column flex-md-row bg-dark navbar-dark sticky-top">
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+         <img src="mccoard.png" alt="Logo" style="width:150px;"> 
+      </li>
+    </ul>
+  </div>
+  <!-- Links -->
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+     <li class="nav-item">
+        <a class="nav-link" href="index.php">Search</a>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link active" href="#">Add New Students</a>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="addRecord.php">Add Training Records</a>
+     </li>
+  </ul>
+  </header>
+  <!-- Jumbotron -->
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
          <h1 class="display-4">Student Enrollment Form</h1>
          <hr>
-         <p class="lead">Add something witty here</p>
+         <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Always pass on what you have learned - Yoda</p>
       </div>
    </div>
 <!--  -Start of the Student Entry Form-  -->
@@ -50,28 +58,28 @@ $index = 0;
          <div class="row mb-2">
             <div class="col-4">
                <label for="fName2">First Name:</label>
-               <input class="form-control" type="text" placeholder="First Name" id="fName2" name="fName" required>
+               <input class="form-control" type="text" placeholder="First Name" id="fName2" name="fName" pattern="[A-Z][a-zA-Z]{1,}" required>
             </div>
             <div class="col-4">
                <label for="lName2">Last Name:</label>
-               <input class="form-control" type="text" placeholder="Last Name" id="lName2" name="lName" required>
+               <input class="form-control" type="text" placeholder="Last Name" id="lName2" name="lName" pattern="[A-Z][a-zA-Z]{1,}" required>
             </div>
          </div>
          <div class="row mb-2">
             <div class="col-3">
                <label for="employeeNum2">3 Digit Employee Number:</label>
-               <input class="form-control mb-2" type="text" placeholder="123" id="employeeNum2" name="employeeNum" required>
+               <input class="form-control mb-2" type="text" placeholder="123" id="employeeNum2" name="employeeNum" pattern="\d{3,6}" required>
             </div>
             <div class="col-3">
                <label for="zone2">Zone:</label>
                <select id="inputState" class="form-control" id="zone2" name="zone" required>
-                  <option selected disabled>Choose...</option>
-                  <option>North West</option>
-                  <option>South West</option>
-                  <option>North Central</option>
-                  <option>South Central</option>
-                  <option>North East</option>
-                  <option>South East</option>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="North West">North West</option>
+                  <option value="South West">South West</option>
+                  <option value="North Central">North Central</option>
+                  <option value="South Central">South Central</option>
+                  <option value="North East">North East</option>
+                  <option value="South East">South East</option>
                </select>
             </div>
          </div>
@@ -139,8 +147,8 @@ $index = 0;
    <?php 
       endif; 
    ?>
-   <hr>
-   <footer class="container-fluid text-center">
+   <footer class="container-fluid text-center bg-light">
+      <hr>
       <div>© Nate M<sup>c</sup>Coard, 2020</div>
       <div>CSE341 Assignment #6</div>
       <div>Kirtland, OH</div>
