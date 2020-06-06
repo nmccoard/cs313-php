@@ -157,7 +157,11 @@ $students   = $statement->fetchAll(PDO::FETCH_ASSOC);
    <script type="text/javascript">
       $("#date").blur(function () {
          if (!(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/s.test($(this).val()))) {
-            $(this).css('backgroundColor', 'red');
+            $(this).css('backgroundColor', "rgba(254, 0, 0, 0.25)");
+            $("#searchBTN").hide();
+         } else {
+            $(this).scc('backgroundColor', "rgba(255, 255, 255, 0.0)");
+            $("#searchBTN").show();
          }
       });
    </script>
